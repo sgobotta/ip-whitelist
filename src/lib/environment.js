@@ -1,10 +1,21 @@
-Environment = {
+Environment = function Environment() {
 
-    //meteorSettings: process.env.METEOR_SETTINGS;
+    this.meteorSettings = this.getMeteorSettings();
 
-    getWhitelist: function() {
-        return [];
+}
+
+Environment.prototype = {
+
+    getMeteorSettings: function getMeteorSettings() {
+        if (typeof process.env.METEOR_SETTINGS === 'undefined') {
+            return [];
+        } else {
+            return JSON.parse(process.env.METEOR_SETTINGS);
+        }
+    },
+
+    getWhitelist: function getWhitelist() {
+        return this.meteorSettings;
     }
-
 };
 
