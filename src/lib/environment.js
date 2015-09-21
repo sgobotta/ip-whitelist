@@ -1,7 +1,10 @@
-Environment = function() {
+Environment = {
 
-    var meteorSettings = process.env.METEOR_SETTINGS,
-        whitelist;
+    //meteorSettings: process.env.METEOR_SETTINGS;
+
+    getWhitelist: function() {
+        return [];
+    }
 
 };
 

@@ -12,7 +12,8 @@ Package.onUse(function(api) {
         'src/ip-whitelist.js',
         'src/lib/environment.js'
   ], ['server']);
-  api.export('IPWhitelist');
+  api.export(['IPWhitelist']);
+  api.export(['Environment'], {testOnly: true});
 });
 
 Package.onTest(function(api) {
