@@ -8,13 +8,19 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.3');
-  api.addFiles('ip-whitelist.js', ['server']);
+  api.addFiles([
+        'src/ip-whitelist.js',
+        'src/lib/environment.js'
+  ], ['server']);
   api.export('IPWhitelist');
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('rycrofts:ip-whitelist', ['server']);
-  api.addFiles('ip-whitelist-tests.js', 'server');
+  api.addFiles([
+      'test/src/unit/environment-test.js',
+      'test/src/integration/ip-whitelist-tests.js'
+  ], 'server');
 });
 
