@@ -22,7 +22,7 @@ Firewall = (function () {
         }
     };
 
-    // The pulbic API
+    // The public API
     return {
         allow: allow
     };
