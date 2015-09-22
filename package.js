@@ -10,10 +10,11 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.3');
   api.addFiles([
         'src/ip-whitelist.js',
-        'src/lib/modules/environment.js'
+        'src/lib/modules/environment.js',
+        'src/lib/modules/firewall.js'
   ], ['server']);
   api.export(['IPWhitelist']);
-  api.export(['Environment'], {testOnly: true});
+  api.export(['Environment', 'Firewall'], {testOnly: true});
 });
 
 Package.onTest(function(api) {
@@ -21,6 +22,7 @@ Package.onTest(function(api) {
   api.use('rycrofts:ip-whitelist', ['server']);
   api.addFiles([
       'test/src/unit/environment-test.js',
+      'test/src/unit/firewall-test.js',
       'test/src/integration/ip-whitelist-tests.js'
   ], 'server');
 });

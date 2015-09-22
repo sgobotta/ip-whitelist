@@ -5,8 +5,6 @@
  */
 Environment = (function () {
     
-    var meteorSettings,
-
     /**
      * Fetches the METEOR_SETTINGS environment variable data.
      *
@@ -15,7 +13,7 @@ Environment = (function () {
      *
      * @return  {Array} The full METEOR_SETTINGS data, if defined. Otherwise an empty array.
      */
-    getMeteorSettings = function() {
+    var getMeteorSettings = function() {
         if (typeof process.env.METEOR_SETTINGS === 'undefined') {
             return [];
         } else {

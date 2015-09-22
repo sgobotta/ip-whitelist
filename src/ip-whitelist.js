@@ -1,6 +1,8 @@
 IPWhitelist = function() {
-    //if (typeof meteorSettings === "undefined") {
-    //    return true;
-    //}
+
+    // private properties
+    var env = new Environment(),
+        whitelist = env.getWhitelist();
+        
 };
 
