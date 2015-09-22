@@ -1,9 +1,20 @@
+/**
+ * Module that handles reading Meteor environment variables.
+ *
+ * @module Environment
+ */
 Environment = (function () {
     
-    // private properties
     var meteorSettings,
 
-    // private methods
+    /**
+     * Fetches the METEOR_SETTINGS environment variable data.
+     *
+     * @method getMeteorSettings
+     * @private
+     *
+     * @return  {Array} The full METEOR_SETTINGS data, if defined. Otherwise an empty array.
+     */
     getMeteorSettings = function() {
         if (typeof process.env.METEOR_SETTINGS === 'undefined') {
             return [];
@@ -12,6 +23,14 @@ Environment = (function () {
         }
     },
 
+    /**
+     * Extracts the whitelist of IP addresses from the environment settings.
+     *
+     * @method getWhiteList
+     * @public
+     *
+     * @return {Array} An array of IP addresses.
+     */
     getWhitelist = function() {
         var meteorSettings = getMeteorSettings();
         if (meteorSettings.length === 0) {
@@ -19,7 +38,7 @@ Environment = (function () {
         }
     };
 
-    // public API
+    // The public API
     return {
         getWhitelist: getWhitelist
     };
