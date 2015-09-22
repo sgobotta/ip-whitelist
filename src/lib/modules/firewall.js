@@ -1,7 +1,7 @@
 /**
  * Module the handles the allow/deny IP rule logic. 
  *
- * @module
+ * @module Firewall
  */
 Firewall = (function () {
 
