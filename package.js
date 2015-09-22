@@ -10,7 +10,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.3');
   api.addFiles([
         'src/ip-whitelist.js',
-        'src/lib/environment.js'
+        'src/lib/modules/environment.js'
   ], ['server']);
   api.export(['IPWhitelist']);
   api.export(['Environment'], {testOnly: true});
