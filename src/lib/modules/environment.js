@@ -25,7 +25,7 @@ Environment = (function () {
      * Extracts the whitelist of IP addresses from the environment settings.
      *
      * @method getWhiteList
-     * @public
+     * @private
      *
      * @return {Array} An array of IP addresses.
      */
@@ -34,6 +34,11 @@ Environment = (function () {
         if (meteorSettings.length === 0) {
             return [];
         }
+        if (typeof meteorSettings.ipWhitelist === 'undefined') {
+            return [];
+        }
+        return meteorSettings.ipWhitelist;
+        
     };
 
     // The public API

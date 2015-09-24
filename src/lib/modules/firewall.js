@@ -20,6 +20,7 @@ Firewall = (function () {
         if (whitelist.length === 0) {
             return true;
         }
+        return (whitelist.indexOf(ip) !== -1);
     };
 
     // The public API
@@ -28,3 +29,4 @@ Firewall = (function () {
     };
 
 });
+
