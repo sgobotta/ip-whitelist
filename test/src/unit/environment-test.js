@@ -22,6 +22,36 @@ Tinytest.add('Does Environment.getWhitelist() return an empty array if ipWhiteli
 
 });
 
+Tinytest.add('Does Environment.getWhitelist() return an empty array if METEOR_SETTINGS is not valid JSON?', function(test) {
+
+    var settings = '{broken, json:}',
+        env = new Environment(),
+        actual,
+        expected = [];
+
+    process.env.METEOR_SETTINGS = settings;
+
+    actual = env.getWhitelist();
+
+    test.equal(actual, expected);
+
+});
+
+Tinytest.add('Does Environment.getWhitelist() return an empty array if ipWhitelist is not an array?', function(test) {
+
+    var settings = '{"ipWhitelist": "bogus string"}',
+        env = new Environment(),
+        actual,
+        expected = [];
+
+    process.env.METEOR_SETTINGS = settings;
+
+    actual = env.getWhitelist();
+
+    test.equal(actual, expected);
+
+});
+
 Tinytest.add('Does Environment.getWhitelist() return the array of IP addresses in METEOR_SETTINGS?', function(test) {
 
     var settings = {

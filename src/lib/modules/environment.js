@@ -17,7 +17,11 @@ Environment = (function () {
         if (typeof process.env.METEOR_SETTINGS === 'undefined') {
             return [];
         } else {
-            return JSON.parse(process.env.METEOR_SETTINGS);
+            try {
+                return JSON.parse(process.env.METEOR_SETTINGS);
+            } catch (e) {
+                return [];
+            }
         }
     },
 
@@ -35,6 +39,9 @@ Environment = (function () {
             return [];
         }
         if (typeof meteorSettings.ipWhitelist === 'undefined') {
+            return [];
+        }
+        if (meteorSettings.ipWhitelist.constructor.toString().indexOf("Array") === -1) {
             return [];
         }
         return meteorSettings.ipWhitelist;
