@@ -22,6 +22,14 @@ The package expects to find a private ipWhitelist key in your METEOR_SETTINGS en
     ]
 }
 ```
+Your hosting provider may give you the ability to configure environment variables via their control panel. Alternatively if you are deploying to Meteor's free hosting service for non-production apps you can define your whitelist in a settings.json file and use:
+
+
+```ssh
+meteor deploy yourapp.meteor.com --settings settings.json
+```
+
+*Please don't commit your settings.json file to a public repository!*
 
 ### Usage
 Add this line to your server-side code:
