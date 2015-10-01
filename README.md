@@ -17,8 +17,8 @@ The package expects to find a private ipWhitelist key in your METEOR_SETTINGS en
 ```json
 {
     "ipWhitelist": [
-        '90.201.1.243',
-        '91.154.1.123'
+        "90.201.1.243",
+        "91.154.1.123"
     ]
 }
 ```
