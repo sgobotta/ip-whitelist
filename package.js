@@ -15,7 +15,7 @@ Package.onUse(function(api) {
   ], ['server']);
   api.export(['IPWhitelist']);
   api.export(['Environment', 'Firewall'], {testOnly: true});
-  api.use(["iron:router@1.0.9"], 'client', {weak: false, unordered: false});
+  api.use('webapp', 'server');
 });
 
 Package.onTest(function(api) {
@@ -24,7 +24,6 @@ Package.onTest(function(api) {
   api.addFiles([
       'test/src/unit/environment-test.js',
       'test/src/unit/firewall-test.js',
-      'test/src/integration/ip-whitelist-tests.js'
   ], 'server');
 });
 
