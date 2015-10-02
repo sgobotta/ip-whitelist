@@ -19,11 +19,13 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
-  api.use('tinytest');
+  api.use(['tinytest', 'webapp', 'http']);
   api.use('simonrycroft:ip-whitelist', ['server']);
+  
   api.addFiles([
       'test/src/unit/environment-test.js',
       'test/src/unit/firewall-test.js',
+      'test/src/integration/ip-whitelist-test.js',
   ], 'server');
 });
 
