@@ -9,7 +9,7 @@ IPWhitelist = function() {
         clientIP = request.headers['x-forwarded-for'];
         if (!firewall.allow(clientIP, whitelist)) {
             response.writeHead(404);
-            response.end('Page Not Found');
+            response.end();
         } else {
             next();
         }
