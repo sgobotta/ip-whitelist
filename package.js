@@ -1,6 +1,6 @@
 Package.describe({
   name: 'simonrycroft:ip-whitelist',
-  version: '1.0.0',
+  version: '1.0.1',
   summary: 'Restrict access to your Meteor application to a whitelist of IP addresses.',
   git: 'https://github.com/simonrycroft/ip-whitelist.git',
   documentation: 'README.md'
@@ -16,6 +16,7 @@ Package.onUse(function(api) {
   api.export(['IPWhitelist']);
   api.export(['Environment', 'Firewall'], {testOnly: true});
   api.use('webapp', 'server');
+  api.use('jag:pince@0.0.9', 'server');
 });
 
 Package.onTest(function(api) {
