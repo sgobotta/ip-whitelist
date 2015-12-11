@@ -16,7 +16,7 @@ Package.onUse(function(api) {
   api.export(['IPWhitelist']);
   api.export(['Environment', 'Firewall'], {testOnly: true});
   api.use('webapp', 'server');
-  api.use('jag:pince', 'server');
+  api.use('jag:pince@0.0.9', 'server');
 });
 
 Package.onTest(function(api) {
