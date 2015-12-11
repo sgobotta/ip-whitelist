@@ -5,6 +5,8 @@
  */
 Firewall = (function () {
 
+    var log = new Logger('IPWhitelist');
+
     /**
      * Decides whether or not to allow an IP address.
      *
@@ -23,12 +25,15 @@ Firewall = (function () {
         if (ips.constructor !== Array) {
             return true;
         }
-        var allowed = true;
+        var allowed = false;
         ips.forEach(function (ip) {
-            if (whitelist.indexOf(ip) === -1) {
-                allowed = false;
+            if (whitelist.indexOf(ip) !== -1) {
+                allowed = true;
             }
         });
+        if (!allowed) {
+            log.info('Blocking request from non-whitelisted IP(s) ' + JSON.stringify(ips));
+        }
         return allowed;
     };
 
